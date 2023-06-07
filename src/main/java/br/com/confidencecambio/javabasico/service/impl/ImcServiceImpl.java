@@ -17,11 +17,11 @@ public class ImcServiceImpl implements ImcService {
         return CalculaImcResponse.builder()
                 .peso(model.getPeso())
                 .altura(model.getAltura())
-                .imc(calculaImc(model))
+                .imc(calcularImc(model))
                 .build();
     }
 
-    private Double calculaImc(ImcModel model) {
+    private Double calcularImc(ImcModel model) {
         return BigDecimal.valueOf(model.getPeso() / Math.pow(model.getAltura(), 2.0))
                 .setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
